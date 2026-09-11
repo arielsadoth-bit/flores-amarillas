@@ -1,4 +1,4 @@
-# Flores Amarillas 🌻
+# Tus flores amarillas 🌻
 
 Una galaxia interactiva de girasoles, partículas doradas y frases de cariño, recreada a partir de la referencia visual de AlexDev. Se abre directamente sin cuentas ni instalación. Admite ratón y pantalla táctil; incluye pausa y una melodía instrumental original opcional.
 

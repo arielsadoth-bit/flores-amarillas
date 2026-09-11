@@ -136,7 +136,7 @@ export default function Home() {
 
   return (
     <main className="flower-world">
-      <header className="dedication"><h1>Feliz día de las<br /><span>Flores Amarillas <span className="heading-flower" aria-hidden="true">🌻</span></span></h1></header>
+      <header className="dedication"><h1>Tus flores<br /><span>amarillas <span className="heading-flower" aria-hidden="true">🌻</span></span></h1></header>
       <Galaxy paused={paused} />
       <footer className="gift-footer">
         <p className="love-note">Un universo de flores, solo para ti.</p>
