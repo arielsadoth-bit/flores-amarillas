@@ -1,0 +1,34 @@
+@import 'tailwindcss' source(none);
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+@source './page.tsx';
+@source '../components/ui/button.tsx';
+@font-face { font-family: FlowerHand; src: url('../public/flower-hand.ttf') format('truetype'); font-style: normal; font-weight: 400 700; font-display: swap; }
+@custom-variant dark (&:is(.dark *));
+@theme inline { --color-background: var(--background); --color-foreground: var(--foreground); --color-primary: var(--primary); --color-primary-foreground: var(--primary-foreground); --color-muted: var(--muted); --color-muted-foreground: var(--muted-foreground); --color-border: var(--border); --color-ring: var(--ring); --color-destructive: #f98e79; --color-input: var(--border); --font-sans: 'Segoe UI', Arial, sans-serif; --radius-lg: 1rem; }
+:root, .dark { color-scheme: dark; --background: #030403; --foreground: #fffbe0; --primary: #ffeb30; --primary-foreground: #171800; --muted: #212013; --muted-foreground: #c9c29b; --border: #57502b; --ring: #ffeb30; }
+* { box-sizing: border-box; }
+html, body { margin: 0; min-width: 280px; background: var(--background); color: var(--foreground); }
+body { font-family: 'Segoe UI', Arial, sans-serif; }
+button { -webkit-tap-highlight-color: transparent; }
+.flower-world { height: 100svh; min-height: 540px; width: 100%; overflow: hidden; position: relative; isolation: isolate; background: #030403; }
+.galaxy-canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: pan-y; cursor: grab; }
+.galaxy-canvas:active { cursor: grabbing; }
+.dedication { position: absolute; z-index: 2; top: max(32px, 7.6svh); width: 100%; text-align: center; pointer-events: none; padding: 0 12px; }
+h1 { margin: 0; color: #fff393; font-family: FlowerHand, 'Segoe Print', cursive; font-size: clamp(2.3rem, 4.5vw, 4.2rem); line-height: 1.25; font-weight: 700; text-shadow: 0 0 5px #e3c32a, 0 0 22px #edc92780, 0 0 48px #b3951635; }
+h1 > span { color: #fff37a; }
+.heading-flower { display: inline-block; font-family: sans-serif; font-size: .72em; vertical-align: .04em; text-shadow: none; }
+.gift-footer { position: absolute; z-index: 2; width: 100%; bottom: max(20px, env(safe-area-inset-bottom)); text-align: center; padding: 25px 16px 10px; background: linear-gradient(transparent, #030403d9 48%); pointer-events: none; }
+.love-note { font-family: FlowerHand, 'Segoe Print', cursive; font-size: clamp(1.05rem, 2.1vw, 1.4rem); color: #e8dca2; margin: 0 0 14px; }
+.gift-controls { pointer-events: auto; display: inline-flex; align-items: center; gap: 7px; }
+.gift-button { color: #beb992; font-size: .875rem; border-radius: 999px; min-height: 44px; height: auto; padding: 10px 16px; background: #0b0c0699; border-color: #9b873922; gap: 8px; }
+.gift-button:hover { background: #242211; color: #fff6b3; }
+.control-separator { width: 3px; height: 3px; border-radius: 50%; background: #706740; }
+.audio-error { font-size: .875rem; color: #e8dca2; }
+.no-script { position: absolute; top: 47%; width: 100%; padding: 25px; text-align: center; }
+@media (max-width: 600px) { .dedication { top: max(40px, 9svh); } h1 { font-size: clamp(2rem, 7.9vw, 3rem); line-height: 1.35; } .gift-footer { bottom: max(16px, env(safe-area-inset-bottom)); } .love-note { margin-bottom: 9px; } }
+@media (max-height: 560px) and (min-width: 601px) { .flower-world { min-height: 360px; } .dedication { top: 18px; } h1 { font-size: 2rem; } .gift-footer { bottom: 2px; padding-top: 10px; } .love-note { display: none; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
+
+
+
