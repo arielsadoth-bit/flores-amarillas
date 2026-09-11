@@ -22,6 +22,8 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      - name: Usar la versión de npm del proyecto
+        run: npm install --global npm@11.6.2
       - run: npm ci
       - run: npm run build:pages
       - uses: actions/configure-pages@v5
@@ -31,3 +33,4 @@ jobs:
       - name: Publicar
         id: deployment
         uses: actions/deploy-pages@v4
+
