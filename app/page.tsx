@@ -136,8 +136,16 @@ export default function Home() {
 
   return (
     <main className="flower-world">
-      <header className="dedication"><h1>Tus flores<br /><span>amarillas <span className="heading-flower" aria-hidden="true">🌻</span></span></h1></header>
       <Galaxy paused={paused} />
+      <img
+        className="center-gift"
+        src="./snoopy-sunflower.png"
+        alt="Snoopy sosteniendo un girasol en el centro del universo"
+        width={1254}
+        height={1254}
+        fetchPriority="high"
+        draggable={false}
+      />
       <footer className="gift-footer">
         <p className="love-note">Un universo de flores, solo para ti.</p>
         <div className="gift-controls">
