@@ -3,6 +3,8 @@
 @import 'shadcn/tailwind.css';
 @source './page.tsx';
 @source '../components/ui/button.tsx';
+@source '../components/ui/dialog.tsx';
+@font-face { font-family: GalaxyHand; src: url('../public/galaxy-hand.ttf') format('truetype'); font-style: normal; font-weight: 400; font-display: swap; }
 @font-face { font-family: FlowerHand; src: url('../public/flower-hand.ttf') format('truetype'); font-style: normal; font-weight: 400 700; font-display: swap; }
 @custom-variant dark (&:is(.dark *));
 @theme inline { --color-background: var(--background); --color-foreground: var(--foreground); --color-primary: var(--primary); --color-primary-foreground: var(--primary-foreground); --color-muted: var(--muted); --color-muted-foreground: var(--muted-foreground); --color-border: var(--border); --color-ring: var(--ring); --color-destructive: #f98e79; --color-input: var(--border); --font-sans: 'Segoe UI', Arial, sans-serif; --radius-lg: 1rem; }
@@ -11,17 +13,25 @@
 html, body { margin: 0; min-width: 280px; background: var(--background); color: var(--foreground); }
 body { font-family: 'Segoe UI', Arial, sans-serif; }
 button { -webkit-tap-highlight-color: transparent; }
-.flower-world { height: 100svh; min-height: 540px; width: 100%; overflow: hidden; position: relative; isolation: isolate; background: #030403; }
-.galaxy-canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: pan-y; cursor: grab; }
+.flower-world { height: 100svh; min-height: 420px; width: 100%; overflow: hidden; position: relative; isolation: isolate; background: #020202; }
+.galaxy-canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: pinch-zoom; cursor: grab; }
 .galaxy-canvas:active { cursor: grabbing; }
 .gift-footer { position: absolute; z-index: 2; width: 100%; bottom: max(20px, env(safe-area-inset-bottom)); text-align: center; padding: 25px 16px 10px; background: linear-gradient(transparent, #030403d9 48%); pointer-events: none; }
-.love-note { font-family: FlowerHand, 'Segoe Print', cursive; font-size: clamp(1.05rem, 2.1vw, 1.4rem); color: #e8dca2; margin: 0 0 14px; }
-.gift-controls { pointer-events: auto; display: inline-flex; align-items: center; gap: 7px; }
-.gift-button { color: #beb992; font-size: .875rem; border-radius: 999px; min-height: 44px; height: auto; padding: 10px 16px; background: #0b0c0699; border-color: #9b873922; gap: 8px; }
+.love-note { font-family: GalaxyHand, FlowerHand, cursive; font-size: 1rem; color: #e8dca2; margin: 0 0 12px; }
+.gift-controls { pointer-events: auto; display: inline-flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 3px; }
+.gift-button { color: #d0cba4; font-size: .875rem; border-radius: 999px; min-height: 44px; height: auto; padding: 10px 12px; background: #0b0c0699; border-color: #9b873922; gap: 6px; }
 .gift-button:hover { background: #242211; color: #fff6b3; }
 .control-separator { width: 3px; height: 3px; border-radius: 50%; background: #706740; }
 .audio-error { font-size: .875rem; color: #e8dca2; }
 .no-script { position: absolute; top: 47%; width: 100%; padding: 25px; text-align: center; }
+.dedication-card { display: flex; flex-direction: column; justify-content: flex-start; width: min(380px, calc(100vw - 40px)); max-width: min(380px, calc(100vw - 40px)); min-height: min(550px, 82svh); max-height: 86svh; aspect-ratio: 2 / 3; overflow-y: auto; overscroll-behavior: contain; padding: 68px 32px 100px; border: 1px solid #ffee73; border-radius: 22px; color: white; background: #422952; box-shadow: 0 0 22px #ffe60099, 0 0 75px #e8c90066; pointer-events: auto; isolation: isolate; }
+.dedication-backdrop { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; background: url('../public/sunflower-field-sunset.png') center / cover no-repeat; border-radius: inherit; }
+.dedication-card::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: linear-gradient(#22102b55, #25162344 60%, #100c0022); pointer-events: none; }
+.dedication-message { margin: 0; color: #fffdf1; font-family: GalaxyHand, FlowerHand, cursive; font-size: clamp(1.45rem, 6.5vw, 2rem); font-weight: 400; line-height: 1.55; text-align: center; text-wrap: pretty; text-shadow: 0 2px 4px #11080d, 0 0 12px #11080d88; }
+.dedication-close { position: absolute; right: 12px; top: 12px; width: 44px; height: 44px; border: 1px solid #ffffff55; border-radius: 50%; background: #160d2499; color: #fffbed; }
+.dedication-close:hover { background: #422640; }
+[data-slot='dialog-overlay'] { background: #000b; backdrop-filter: blur(5px); }
+@media (max-height: 560px) { .dedication-card { min-height: 0; aspect-ratio: auto; padding: 58px 28px 40px; } .dedication-message { font-size: 1.3rem; } }
 @media (max-width: 600px) { .gift-footer { bottom: max(16px, env(safe-area-inset-bottom)); } .love-note { margin-bottom: 9px; } }
 @media (max-height: 560px) and (min-width: 601px) { .flower-world { min-height: 360px; } .gift-footer { bottom: 2px; padding-top: 10px; } .love-note { display: none; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
